@@ -1,0 +1,44 @@
+@use '../mixins' as *;
+@use '../variables' as *;
+
+.header {
+	background-color: var(--bg-dark);
+	color: var(--color-dark);
+	padding: 2rem 0;
+
+	&-wrapper {
+		@include container();
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&-logo {
+		display: block;
+
+		img {
+			width: auto;
+			height: 2rem;
+		}
+	}
+	
+	&-button {
+		position: relative;
+		width: 30px;
+		height: 24px;
+		cursor: pointer;
+		z-index: 20;
+	}
+
+	//MENU HEADER
+	&-menu{
+		//NIVEAU 1
+		> ul{
+			> li{
+				> a{
+					color: $white;
+				}
+			}
+		}
+	}
+}

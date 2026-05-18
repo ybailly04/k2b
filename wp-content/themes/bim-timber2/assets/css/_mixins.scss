@@ -1,0 +1,50 @@
+@use 'variables' as *;
+
+// ======================================
+// Container
+// ======================================
+@mixin container($width: $container-width) {
+	max-width: $width;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	padding-left: 1em;
+	padding-right: 1em;
+	width: 100%;
+}
+
+@mixin sitegrid($colums: 12){
+	display: grid;
+	grid-template-columns: repeat($colums, minmax(0, 1fr));
+	grid-auto-flow: dense;
+	gap: var(--grid-gap);
+	@media #{$md} {
+		
+	}
+	@media #{$sm} {
+		grid-template-columns: 1fr;
+	}
+}
+
+@mixin gridspan($start, $end){
+	grid-column: $start / span $end;
+	@media #{$sm} {
+		grid-column: 1 / -1;
+	}
+}
+
+
+// ======================================
+// Effects
+// ======================================
+
+@mixin underline(){
+	display: inline;
+	background-image: linear-gradient(currentColor, currentColor);
+	background-position: 0% 100%;
+	background-repeat: no-repeat;
+	background-size: 0% 2px;
+	transition: background-size $ts-smooth;
+	&:hover, &:focus{
+		background-size: 100% 2px;
+	}
+}

@@ -1,0 +1,12 @@
+<div class="bim-popup">
+	<div class="bim-popup-overlay"></div>
+	<div class="bim-popup-content">
+		<button class="bim-popup-close" data-menu-button="close">
+			<svg class="bim-icon" data-icon="cross"></svg>
+		</button>
+
+		<div class="bim-popup-menu">
+			{% include 'components/menu.twig' with { items: menus['menu-header'].get_items } %}
+		</div>
+	</div>
+</div>

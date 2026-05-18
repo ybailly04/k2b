@@ -1,0 +1,115 @@
+@use "_mixins" as *;
+@use "_variables" as *;
+
+* {
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    backface-visibility: hidden;
+}
+
+:root {
+    --size-unit: 16; /* body font-size in design - no px */
+    --size-container-ideal: 1440; /* screen-size in design - no px */
+    --size-container-min: 992px;
+    --size-container-max: 1920px;
+    --size-container: clamp(
+        var(--size-container-min),
+        100vw,
+        var(--size-container-max)
+    );
+    --size-font: calc(
+        var(--size-container) / (var(--size-container-ideal) / var(--size-unit))
+    );
+    --grid-gap: 20px;
+
+    /* COLORS */
+    --bg: #{$white};
+    --color: #{$black};
+    --bg-dark: #{$black};
+    --color-dark: #{$white};
+}
+@media #{$md} {
+    :root {
+        --size-container-ideal: 834; /* screen-size in design - no px */
+        --size-container-min: 768px;
+        --size-container-max: 991px;
+    }
+}
+@media #{$sm} {
+    :root {
+        --size-container-ideal: 390; /* screen-size in design - no px */
+        --size-container-min: 320px;
+        --size-container-max: 479px;
+    }
+}
+
+svg {
+    fill: currentColor;
+}
+
+html {
+    margin: 0;
+}
+
+body {
+    font-family: $font;
+    font-weight: $fw-regular;
+    color: $black;
+    font-size: var(--size-font);
+    background: var(--bg);
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 7.5em;
+}
+h2 {
+    font-size: 5em;
+}
+h3 {
+    font-size: 2.5em;
+}
+h4 {
+    font-size: 1.75em;
+}
+h5 {
+    font-size: 1.25em;
+}
+
+.main-content {
+    min-height: 100vh;
+}
+
+.container {
+    max-width: $container-width;
+    width: 100%;
+    padding: 0 rm(1);
+    margin: 0 auto;
+
+    @media #{$sm} {
+        padding: 0 1rem;
+    }
+
+    &-little {
+        @extend .container;
+        max-width: 780px;
+    }
+}
+
+.wysiwyg-text {
+    p {
+        text-wrap: pretty;
+    }
+
+    a {
+        transition: $ts;
+
+        &:hover {
+            color: $color-main;
+        }
+    }
+}

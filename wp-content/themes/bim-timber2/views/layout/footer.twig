@@ -1,0 +1,17 @@
+<footer class="footer">
+	<div class="container">
+		<div class="footer-logo">
+			<img src="{{ 'bimAgency-logo-white.svg'|theme_image }}" alt="{{ site.name }}">
+		</div>
+		<div class="footer-menu">
+			{% include 'components/menu.twig' with { items: menus['menu-footer'].get_items } %}
+		</div>
+	</div>
+</footer>
+<aside class="subfooter">
+	<div class="container">
+		<div class="subfooter-wrapper">
+			a <a href="https://bimagency.fr/" target="_blank">Bim Agency</a> original website
+		</div>
+	</div>
+</aside>

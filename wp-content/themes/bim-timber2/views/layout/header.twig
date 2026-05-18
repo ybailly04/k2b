@@ -1,0 +1,13 @@
+<header class="header">
+	<div class="header-wrapper">
+		<a class="header-logo" href="{{ site.link }}">
+			<img src="{{ 'logo-bim.svg'|theme_image }}" alt="{{ site.name }}">
+		</a>
+		<nav class="header-menu">
+			{% include 'components/menu.twig' with { items: menus['menu-header'].get_items } %}
+		</nav>
+		<button class="header-button" data-menu-button="burger">
+			<span>MENU</span>
+		</button>
+	</div>
+</header>

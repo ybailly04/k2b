@@ -1,0 +1,11 @@
+{% extends "layout/base.twig" %}
+
+{% block content %}
+	<article class="single">
+		<div class="page-flexibles">
+			{% for layout in flexibles %}
+				{% include "flexibles/" ~ layout.acf_fc_layout ~ ".twig" %}
+			{% endfor %}
+		</div>
+	</article>
+{% endblock %}

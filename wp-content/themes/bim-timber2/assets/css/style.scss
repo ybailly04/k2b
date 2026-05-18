@@ -1,0 +1,19 @@
+// @import url('https://fonts.googleapis.com/css2?family=Blinker:wght@300;600;800&display=swap');
+
+@use '../../node_modules/swiper/swiper.css';
+@use '../../node_modules/swiper/modules/effect-fade.css';
+@use '../../node_modules/mouse-follower/src/scss/index.scss';
+
+@use 'main';
+@use 'fonts';
+
+@use 'layout/header';
+@use 'layout/footer';
+@use 'layout/menu';
+
+@use 'components/buttons';
+@use 'components/cursor';
+@use 'components/popup';
+
+@use 'templates/homepage';
+@use 'templates/page404';

@@ -1,0 +1,176 @@
+@use '../mixins' as *;
+@use '../variables' as *;
+
+.footer {
+	background: $black;
+	padding: 3rem 0;
+	color: $white;
+
+	a {
+		transition: $ts;
+
+		&:hover {
+			color: $color-main;
+		}
+	}
+	
+	&-logo {
+		max-width: 8rem;
+		margin-bottom: 2rem;
+		width: 100%;
+	}
+
+	&-contact {
+		&-item {
+			margin-bottom: 0.75rem;
+			display: flex;
+			align-items: flex-start;
+			justify-content: flex-start;
+
+			&:last-child { margin-bottom: 0; }
+
+			&-icon {
+				width: 1.2rem;
+				height: 1.2rem;
+				margin-right: 0.5rem;
+				color: $color-main;
+			}
+
+			&-title {
+
+			}
+
+			a {
+				display: block;
+			}
+		}
+	}
+
+	&-title {
+		margin-bottom: 1rem;
+		font-size: 1rem;
+		border-bottom: solid 1px $gray-dark;
+		padding-bottom: 0.5rem;
+	}
+
+	&-menu {
+		.menu {
+			flex-direction: column;
+			text-align: left;
+			align-items: flex-start;
+			margin: 0;
+
+			&-item {
+				margin: 0;
+			}
+		}
+
+		.submenu {
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+
+			&-item-link {
+				position: relative;
+				padding-left: 1.5rem;
+				color: $gray-light;
+
+				&:before {
+					content: '';
+					display: block;
+					position: absolute;
+					left: 0.25rem;
+					top: 0.6rem;
+					height: 1px;
+					width: 0.75rem;
+					background: $gray-dark;
+					transition: $ts;
+				}
+
+				&:hover {
+					&:before {
+						transform: scaleY(5);
+						background: $color-main;
+					}
+				}
+			}
+		}
+
+		&--social {
+			.menu {
+				margin: -0.2rem;
+
+				&-item {
+					margin: 0.2rem;
+
+					&-link {
+						border: solid 1px;
+						padding: 0.5rem;
+						margin: 3px;
+
+						svg {
+							width: 1.2rem;
+							height: 1.2rem;
+						}
+
+						&:hover {
+							color: $black;
+							background: $white;
+							border-color: $white;
+						}
+					}
+				}
+			}
+		}
+
+		&--aside {
+			margin-top: 1rem;
+
+			.menu {
+				flex-direction: column;
+				text-align: left;
+				align-items: flex-start;
+				margin: 0;
+
+				&-item {
+					margin: 0;
+				}
+			}
+		}
+	}
+
+	@media #{$sm} {
+		.col-contact {
+			margin-bottom: 2rem;
+			width: calc(100% - 1rem) !important;
+		}
+	}
+
+	@media #{$xs} {
+		.col-menu {
+			margin-bottom: 2rem;
+		}
+	}
+}
+
+.subfooter {
+	background: var(--bg-dark);
+	color: var(--color-dark);
+	padding: 1em 0;
+
+	&-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 0.7em;
+
+		a {
+			color: currentColor;
+			margin: 0 5px;
+
+			&:hover {
+				color: #FF88BB;
+			}
+		}
+	}
+}

@@ -1,0 +1,36 @@
+<div class="bim-slider">
+	<div class="bim-slider-main">
+		<div class="swiper">
+			<div class="swiper-wrapper">
+				{% for slide in slides %}
+					<div class="swiper-slide">
+						<figure class="swiper-image {% if slide.description %}--has-description{% endif %}">
+							<img src="{{ TimberImage(slide.image).src('bim-1') }}">
+							{% if slide.description %}
+								<div class="swiper-image-description">{{ slide.description }}</div>
+							{% endif %}
+						</figure>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="swiper-button swiper-button-prev"><svg class="bim-icon" data-icon="arrow-back-sharp"></svg></div>
+		<div class="swiper-button swiper-button-next"><svg class="bim-icon" data-icon="arrow-forward-sharp"></svg></div>
+		<div class="swiper-pagination"></div>
+	</div>
+	{% if thumbnails %}
+		<div class="bim-slider-thumbnails">
+			<div class="swiper">
+				<div class="swiper-wrapper">
+					{% for slide in slides %}
+						<div class="swiper-slide">
+							<figure class="swiper-image">
+								<img src="{{ TimberImage(slide.image).src('bim-4') }}">
+							</figure>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	{% endif %}
+</div>

@@ -1,0 +1,12 @@
+{% if options.landing %}
+	<div class="bim-landing">
+		<div class="bim-landing-content">
+			<div class="bim-landing-logo">
+				<img src="{{ 'bimAgency-logo-white.svg'|theme_image }}" alt="{{ site.name }}">
+			</div>
+			<div class="wysiwyg-text">
+				{{ options.landing.text }}
+			</div>
+		</div>
+	</div>
+{% endif %}

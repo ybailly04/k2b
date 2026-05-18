@@ -1,0 +1,10 @@
+## Team
+
+Bim Agency
+https://bimagency.fr
+
+Developpeur : Yann Bailly
+
+## Site
+
+Software: Built with [Timber](https://upstatement.com/timber/) by Upstatement

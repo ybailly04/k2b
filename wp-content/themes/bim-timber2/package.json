@@ -1,0 +1,31 @@
+{
+  "name": "bim-wp-blank",
+  "type": "module",
+  "main": "index.php",
+  "dependencies": {
+    "@mistralai/mistralai": "^1.5.0",
+    "glob": "^13.0.6",
+    "gsap": "^3.14.0",
+    "lenis": "^1.3.4",
+    "mouse-follower": "^1.1.2",
+    "svg-symbols": "^1.0.5",
+    "swiper": "^12.1.0",
+    "three": "^0.152.2",
+    "vite-plugin-live-reload": "^3.1.0",
+    "vite-plugin-php": "^2.0.4",
+    "vite-plugin-svg-sprite": "^0.7.0"
+  },
+  "devDependencies": {
+    "sass-embedded": "^1.99.0",
+    "vite": "^7.3.2",
+    "vite-plugin-browser-sync": "^6.0.0",
+    "vite-plugin-mkcert": "latest",
+    "vite-plugin-restart": "latest"
+  },
+  "scripts": {
+    "dev": "vite build --watch",
+    "build-dev": "vite build --watch --mode development",
+    "icons": "svg-symbols assets/icons > dist/img/all-icons.svg",
+    "build": "svg-symbols assets/icons > dist/img/all-icons.svg & vite build"
+  }
+}
