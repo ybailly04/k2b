@@ -1,0 +1,21 @@
+<div class="flex-objets" data-objects>
+	<h2 class="flex-objets-title">
+		<span>{{ layout.titre_ligne_1 }}</span>
+		<span>{{ layout.titre_ligne_2 }}</span>
+	</h2>
+    <div class="flex-objets-pictures">
+		{% for object in layout.liste_des_objets %}
+            <picture class="flex-objets-picture" data-index="{{ loop.index }}">
+                {{ object.image|get_timber_picture_responsive('portrait')}}
+            </picture>
+		{% endfor %}
+	</div>
+	<div class="flex-objets-right">
+	    <div class="flex-objets-paragraphe">{{ layout.paragraphe }}</div>
+		<ul class="flex-objets-list">
+            {% for object in layout.liste_des_objets %}
+                <li class="flex-objets-item" data-object="{{ loop.index }}">{{ object.titre }}</li>
+            {% endfor %}
+		</ul>
+	</div>
+</div>

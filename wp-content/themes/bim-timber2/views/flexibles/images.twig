@@ -1,0 +1,12 @@
+<div class="flex-images">
+    {% if layout.image_gauche %}
+        <picture class="flex-images-gauche">
+            {{ layout.image_gauche|get_timber_picture_responsive('square')}}
+        </picture>
+    {% endif %}
+    {% if layout.image_droite %}
+        <picture class="flex-images-droite">
+            {{ layout.image_droite|get_timber_picture_responsive('square')}}
+        </picture>
+    {% endif %}
+</div>

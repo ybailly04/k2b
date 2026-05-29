@@ -2,9 +2,16 @@
 
 {% block content %}
 	<article class="page">
-		<h1 class="page-title">{{ post.title }}</h1>
+	    <section class="page-hero">
+			<h1 class="page-hero-uptitle">{{ fields.titre_h1 != "" ? fields.titre_h1 : fields.title }}</h1>
+			<div class="page-hero-title">{{ fields.titre }}</div>
+			<div class="page-hero-intro">{{ fields.intro }}</div>
+			<picture class="page-hero-picture">
+                {{ post.thumbnail|get_timber_picture_responsive('fullsize')}}
+            </picture>
+		</section>
 		<div class="page-flexibles">
-			{% for layout in flexibles %}
+			{% for layout in fields.blocs_flexibles %}
 				{% include "flexibles/" ~ layout.acf_fc_layout ~ ".twig" %}
 			{% endfor %}
 		</div>

@@ -1,17 +1,43 @@
+<section class="prefooter">
+    <div class="prefooter-container">
+        <h2 class="prefooter-title">
+            <span>{{ options.footer.prefooter_ligne_1 }}</span>
+            <span>{{ options.footer.prefooter_ligne_2 }}</span>
+            <span>{{ options.footer.prefooter_ligne_3 }}</span>
+        </h2>
+        <a href="{{ options.footer.bouton.url }}" class="prefooter-button button-primary">
+            <span class="button-inner">
+                <span class="button-text">{{ options.footer.bouton.title }}</span>
+            </span>
+        </a>
+        <picture class="prefooter-picture">
+            {{ options.footer.image|get_timber_picture_responsive('portrait')}}
+        </picture>
+        <svg class="bim-icon prefooter-deco" data-icon="vector"></svg>
+    </div>
+</section>
 <footer class="footer">
-	<div class="container">
-		<div class="footer-logo">
-			<img src="{{ 'bimAgency-logo-white.svg'|theme_image }}" alt="{{ site.name }}">
-		</div>
-		<div class="footer-menu">
-			{% include 'components/menu.twig' with { items: menus['menu-footer'].get_items } %}
-		</div>
+    <div class="footer-socials">
+        <a href="{{ options.socials.url_instagram }}" class="footer-socials-link">
+            <svg class="bim-icon" data-icon="logo-instagram"></svg>
+        </a>
+        <a href="{{ options.socials.url_facebook }}" class="footer-socials-link">
+            <svg class="bim-icon" data-icon="logo-facebook"></svg>
+        </a>
+    </div>
+    <div class="footer-contact">
+        <a class="footer-contact-mail" href="mailto:{{ options.footer.mail_contact }}">{{ options.footer.mail_contact }}</a>
+        <a class="footer-contact-tel" href="mailto:{{ options.footer.telephone }}">{{ options.footer.telephone }}</a>
+    </div>
+    <div class="footer-showroom">
+        <div class="footer-showroom-title">{{ __('Showroom','bim') }}</div>
+        <div class="footer-showroom-adress">{{ options.footer.adresse_showroom|nl2br }}</div>
+    </div>
+    <div class="footer-credit">k2b©2026. All rights reserved.</div>
+    <div class="footer-menu">
+        {% include 'components/menu.twig' with { items: menus['menu-footer'].get_items } %}
+    </div>
+    <div class="footer-bim">
+		website by <a href="https://bimagency.fr/" target="_blank">Bim Agency</a>
 	</div>
 </footer>
-<aside class="subfooter">
-	<div class="container">
-		<div class="subfooter-wrapper">
-			a <a href="https://bimagency.fr/" target="_blank">Bim Agency</a> original website
-		</div>
-	</div>
-</aside>

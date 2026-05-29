@@ -1,6 +1,6 @@
 <?php
 
 $context = Timber::context();
-$context['flexibles'] = get_field('blocs_flexibles', $post);
+$context["fields"] = get_fields($post);
 
-Timber::render('page.twig', $context);
+Timber::render("page.twig", $context);

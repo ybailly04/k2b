@@ -1,0 +1,10 @@
+<div class="flex-texteimage {{ layout.position_de_limage }}">
+    <picture class="flex-texteimage-picture" data-parallax>
+        {{ layout.image|get_timber_picture_responsive('portrait') }}
+    </picture>
+    <div class="flex-texteimage-side">
+        <div class="flex-texteimage-surtitle">{{ layout.surtitre }}</div>
+        <h2 class="flex-texteimage-title">{{ layout.titre }}</h2>
+        <div class="flex-texteimage-text">{{ layout.texte }}</div>
+    </div>
+</div>

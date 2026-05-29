@@ -7,9 +7,7 @@ function bim_add_scripts()
         $manifest = json_decode(file_get_contents($manifest_path), true);
         wp_enqueue_script(
             "bim",
-            get_template_directory_uri() .
-                "/dist/" .
-                $manifest["assets/js/app.js"]["file"],
+            get_template_directory_uri() . "/dist/" . $manifest["assets/js/app.js"]["file"],
             null,
             null,
             true,
@@ -17,9 +15,7 @@ function bim_add_scripts()
     }
 
     wp_localize_script("bim", "ajaxUrl", [admin_url("admin-ajax.php")]);
-    wp_localize_script("bim", "iconsSvg", [
-        get_stylesheet_directory_uri() . "/dist/img/all-icons.svg",
-    ]);
+    wp_localize_script("bim", "iconsSvg", [get_stylesheet_directory_uri() . "/dist/img/all-icons.svg"]);
 }
 
 function bim_add_styles()
@@ -29,9 +25,7 @@ function bim_add_styles()
         $manifest = json_decode(file_get_contents($manifest_path), true);
         wp_enqueue_style(
             "bim",
-            get_template_directory_uri() .
-                "/dist/" .
-                $manifest["assets/css/style.scss"]["file"],
+            get_template_directory_uri() . "/dist/" . $manifest["assets/css/style.scss"]["file"],
             null,
             null,
         );
@@ -65,3 +59,16 @@ remove_action("wp_enqueue_scripts", "wp_enqueue_global_styles");
 remove_action("wp_footer", "wp_enqueue_global_styles", 1);
 
 add_filter("wpcf7_autop_or_not", "__return_false");
+
+add_filter("gform_phone_formats", "fr_phone_format");
+function fr_phone_format($phone_formats)
+{
+    $phone_formats["fr"] = [
+        "label" => "FR",
+        "mask" => false,
+        "regex" => '/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/',
+        "instruction" => "Veuillez saisir un format de téléphone valide",
+    ];
+
+    return $phone_formats;
+}

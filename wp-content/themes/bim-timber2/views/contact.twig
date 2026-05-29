@@ -1,0 +1,24 @@
+{% extends "layout/base.twig" %}
+
+{% block content %}
+	<article class="contact">
+	    <div class="contact-left">
+			<div class="contact-left-seo">{{ fields.texte_seo }}</div>
+			<div class="contact-left-links">
+			    <a class="footer-contact-mail" href="mailto:{{ options.footer.mail_contact }}">{{ options.footer.mail_contact }}</a>
+                <a class="footer-contact-tel" href="mailto:{{ options.footer.telephone }}">{{ options.footer.telephone }}</a>
+			</div>
+            <div class="footer-showroom-adress">{{ options.footer.adresse_showroom|nl2br }}</div>
+		</div>
+        <div class="contact-right">
+            <h2 class="contact-right-title">
+                <span>{{ fields.titre_ligne_1 }}</span>
+                <span>{{ fields.titre_ligne_2 }}</span>
+                <span>{{ fields.titre_ligne_3 }}</span>
+            </h2>
+            <div class="contact-right-form">
+                {{ function("do_shortcode", fields.shortcode_formulaire) }}
+            </div>
+		</div>
+	</article>
+{% endblock %}

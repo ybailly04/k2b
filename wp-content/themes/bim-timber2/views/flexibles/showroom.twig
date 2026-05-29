@@ -1,0 +1,18 @@
+<div class="flex-showroom">
+    <div class="flex-showroom-surtitle">{{ layout.surtitre }}</div>
+    <h2 class="flex-showroom-title">{{ layout.titre }}</h2>
+    <div class="flex-showroom-grid">
+        {% for image in layout.images %}
+            <picture class="flex-showroom-picture">
+                {{ image|get_timber_picture_responsive('portrait')}}
+            </picture>
+        {% endfor %}
+        <div class="flex-showroom-text">{{ layout.texte_premiere_ligne }}</div>
+        <div class="flex-showroom-lasttext">{{ layout.texte_deuxieme_ligne }}</div>
+    </div>
+    <a href="{{ layout.bouton.url }}" class="flex-showroom-button button-primary">
+        <span class="button-inner">
+            <span class="button-text">{{ layout.bouton.title }}</span>
+        </span>
+    </a>
+</div>

@@ -30,7 +30,7 @@ export default defineConfig(({ command, mode }) => {
         buildWatch: {
           enable: true,
           bs: {
-            proxy: "http://bim-timber2.test",
+            proxy: "http://k2b.test",
             files: ["./dist/assets/style.css"],
             serveStatic: ["./dist/assets"],
             injectChanges: true,

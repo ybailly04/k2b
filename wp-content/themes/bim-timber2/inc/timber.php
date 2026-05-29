@@ -16,12 +16,17 @@ class BimSite extends Timber\Site
     public function add_to_context($context)
     {
         $context["site"] = $this;
+        $context["theme"] = "";
         $context["menus"] = [
             "menu-header" => Timber::get_menu("menu-header"),
             "menu-footer" => Timber::get_menu("menu-footer"),
         ];
         $context["links"] = [];
-        $context["options"] = [];
+        $context["options"] = [
+            "general" => get_field("general", "options"),
+            "footer" => get_field("footer", "options"),
+            "socials" => get_field("socials", "options"),
+        ];
 
         return $context;
     }
@@ -32,12 +37,7 @@ class BimSite extends Timber\Site
         add_theme_support("title-tag");
         add_theme_support("post-thumbnails");
         add_theme_support("menus");
-        add_theme_support("html5", [
-            "comment-form",
-            "comment-list",
-            "gallery",
-            "caption",
-        ]);
+        add_theme_support("html5", ["comment-form", "comment-list", "gallery", "caption"]);
     }
 
     public function theme_image($name)
@@ -48,9 +48,7 @@ class BimSite extends Timber\Site
     public function add_to_twig($twig)
     {
         $twig->addExtension(new Twig\Extension\StringLoaderExtension());
-        $twig->addFilter(
-            new Twig\TwigFilter("theme_image", [$this, "theme_image"]),
-        );
+        $twig->addFilter(new Twig\TwigFilter("theme_image", [$this, "theme_image"]));
         return $twig;
     }
 }

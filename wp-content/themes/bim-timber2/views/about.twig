@@ -1,0 +1,38 @@
+{% extends "layout/base.twig" %}
+
+{% block content %}
+	<article class="about">
+	    <section class="about-hero">
+			<div class="about-hero-top">
+    			<h1 class="about-hero-title">
+                    <span>{{ fields.titre }}</span>
+                    <span>{{ fields.titre_ligne_2 }}</span>
+                </h1>
+    			<div class="about-hero-intro">{{ fields.intro }}</div>
+    			<picture class="about-hero-portrait">
+                    {{ fields.image_secondaire|get_timber_picture_responsive('portrait')}}
+                </picture>
+			</div>
+ 			<picture class="about-hero-picture">
+                {{ fields.image_de_fond|get_timber_picture_responsive('fullsize')}}
+            </picture>
+            <div class="about-hero-bottom">
+                <div class="about-hero-bottom-left">{{ fields.texte_deco_gauche }}</div>
+                <div class="about-hero-bottom-center">
+                    <span>{{ fields.texte_deco_centre }}</span>
+                    <div class="about-hero-bottom-seo">{{ fields.texte_seo }}</div>
+                    <div class="homepage-intro-deco">
+         			    <img class="homepage-intro-deco-coin" src="{{ 'coin_old.png'|theme_image }}" role="presentation">
+                        <svg class="homepage-intro-deco-svg bim-icon" data-icon="vector"></svg>
+         			</div>
+                </div>
+                <div class="about-hero-bottom-right">{{ fields.texte_deco_droite }}</div>
+            </div>
+		</section>
+		<div class="about-flexibles">
+			{% for layout in fields.blocs_flexibles %}
+				{% include "flexibles/" ~ layout.acf_fc_layout ~ ".twig" %}
+			{% endfor %}
+		</div>
+	</article>
+{% endblock %}

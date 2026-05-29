@@ -1,13 +1,34 @@
-<header class="header">
+<header class="header" data-theme="{{ theme }}">
 	<div class="header-wrapper">
-		<a class="header-logo" href="{{ site.link }}">
-			<img src="{{ 'logo-bim.svg'|theme_image }}" alt="{{ site.name }}">
-		</a>
-		<nav class="header-menu">
-			{% include 'components/menu.twig' with { items: menus['menu-header'].get_items } %}
-		</nav>
-		<button class="header-button" data-menu-button="burger">
+		<button class="header-button" data-menu-button="burger" data-lenis-stop>
 			<span>MENU</span>
 		</button>
+		<a class="header-logo" href="{{ site.link }}">
+            {% if theme  == "dark" %}
+                <img src="{{ 'logo-black.svg'|theme_image }}" alt="{{ site.name }}">
+            {% else %}
+                <img src="{{ 'logo.svg'|theme_image }}" alt="{{ site.name }}">
+            {% endif %}
+		</a>
+		<div class="header-right">
+            <nav class="header-menu">
+                {% include 'components/menu.twig' with { items: menus['menu-header'].get_items } %}
+    		</nav>
+    		<div data-whatsapp-modal-trigger="" class="whatsapp-modal__btn-svg">
+                <span class="whatsapp-modal__btn-span"><svg class="bim-icon" data-icon="whatsapp"></svg></span>
+                <!-- Clickable on touch devices (opening link directly) -->
+                <a data-whatsapp-modal-link="" href="#" class="whatsapp-modal__overlay-link"></a>
+                <!-- Clickable on non-touch devices (opening modal) -->
+                <div data-whatsapp-modal-toggle="" class="whatsapp-modal__overlay-toggle"></div>
+            </div>
+    		<a href="{{ options.general.lien_vers_contact.url }}" class="button-primary header-contact">
+    		    <span class="button-inner">
+    		        <span class="button-text">{{ __('Faire estimer','bim') }}</span>
+    			</span>
+    		</a>
+			<a href="{{ options.general.lien_vers_contact.url }}" class="header-contact--mobile">
+				{{ __('Contact','bim') }}
+			</a>
+  		</div>
 	</div>
 </header>

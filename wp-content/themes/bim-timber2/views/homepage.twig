@@ -2,6 +2,119 @@
 
 {% block content %}
 	<article class="homepage">
-
+	    <div class="homepage-hero">
+			<h1 class="homepage-hero-title">{{ fields.hero.titre_h1 }}</h1>
+			<a href="{{ fields.hero.bouton.url }}" class="homepage-hero-button button-primary">
+			    <span class="button-inner">
+			        <span class="button-text">{{ fields.hero.bouton.title }}</span>
+				</span>
+			</a>
+			<video loop autoplay muted class="homepage-hero-video">
+                <source src="{{ fields.hero.video_de_fond.url }}" type="video/mp4" />
+            </video>
+            <svg class="homepage-hero-deco bim-icon" data-icon="vector-full"></svg>
+			<div class="homepage-hero-bottom">
+			    <div class="homepage-hero-bottom-left">{{ fields.hero.texte_intro }}</div>
+			    <div class="homepage-hero-bottom-right">
+					<div class="homepage-hero-bottom-stars">
+    					{% for i in 0..(fields.hero.etoiles_google - 1) %}
+    					    <svg class="bim-icon" data-icon="star"></svg>
+                        {% endfor %}
+					</div>
+					<div class="homepage-hero-bottom-reviews">
+					    {{ fields.hero.intitule_avis_google }}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="homepage-intro">
+			<div class="homepage-intro-text" data-appear="text">
+			    <h2 class="homepage-intro-title">{{ fields.intro.petit_titre }}</h2>
+			    {{ fields.intro.texte }}
+			</div>
+			<div class="homepage-intro-deco">
+			    <img class="homepage-intro-deco-coin" src="{{ 'coin.png'|theme_image }}" role="presentation">
+                <svg class="homepage-intro-deco-svg bim-icon" data-icon="vector"></svg>
+			</div>
+		</div>
+		<div class="homepage-steps">
+    		<div data-sticky-feature-wrap="" class="sticky-features__wrap">
+                <div class="sticky-features__scroll">
+                    <div class="sticky-features__container">
+                        <div class="sticky-feaures__col is--img">
+                            <div class="sticky-features__img-collection">
+                                <div class="sticky-features__img-list">
+                                    {% for section in fields.etapes.liste_des_etapes %}
+                                        <div data-sticky-feature-visual-wrap="" class="sticky-features__img-item">
+                                            <img {{ section.image|get_timber_image_responsive('portrait') }} class="sticky-features__img" />
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sticky-feaures__col">
+                            <div class="sticky-features__text-collection">
+                                <div class="sticky-features__text-list">
+                                    {% for section in fields.etapes.liste_des_etapes %}
+                                        <div data-sticky-feature-item="" class="sticky-features__text-item">
+                                            <span data-sticky-feature-text="" class="sticky-features__tag">{{ section.surtitre }}</span>
+                                            <h2 data-sticky-feature-text="" class="sticky-features__heading">{{ section.titre }}</h2>
+                                            <div data-sticky-feature-text="" class="sticky-features__p">{{ section.texte }}</div>
+                                            <a href="{{ fields.hero.bouton.url }}" data-sticky-feature-text class="sticky-features__p button-secondary">
+                                 			    <span class="button-inner">
+                                 			        <span class="button-text">{{ fields.hero.bouton.title }}</span>
+                                				</span>
+                                 			</a>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
+		<div class="homepage-about">
+            <picture class="homepage-about-picture">
+                {{ fields.histoire.image|get_timber_picture_responsive('portrait')}}
+            </picture>
+            <div class="homepage-about-right">
+                <div class="homepage-about-text">{{ fields.histoire.texte }}</div>
+                <a href="{{ fields.histoire.bouton.url }}" class="homepage-about-button button-primary">
+     			    <span class="button-inner">
+     			        <span class="button-text">{{ fields.histoire.bouton.title }}</span>
+    				</span>
+     			</a>
+            </div>
+            <h2 class="homepage-about-title">
+                <span>{{ fields.histoire.titre_ligne_1 }}</span>
+                <span>{{ fields.histoire.titre_ligne_2 }}</span>
+                <span>{{ fields.histoire.titre_ligne_3 }}</span>
+            </h2>
+		</div>
+		<div class="homepage-process">
+		    <h2 class="homepage-process-title">{{ fields.processus.titre }}</h2>
+			<div class="homepage-process-wrapper">
+			    <div class="homepage-process-numbers" data-animation-container>
+					<div class="homepage-process-numbers-wrapper">
+					    <span>0</span>
+						<span class="homepage-process-numbers-scroll" data-animation="steps">
+    					    {% for step in fields.processus.liste_du_processus %}
+               					<span>{{ loop.index }}</span>
+                            {% endfor %}
+						</span>
+                        <span>.</span>
+					</div>
+				</div>
+				<div class="homepage-process-list">
+				{% for step in fields.processus.liste_du_processus %}
+					<div class="homepage-process-step">
+					    <h3 class="homepage-process-step-title">{{ step.titre }}</h3>
+						<div class="homepage-process-step-description">{{ step.texte }}</div>
+					</div>
+                {% endfor %}
+				</div>
+			</div>
+		</div>
 	</article>
 {% endblock %}

@@ -1,0 +1,24 @@
+<div class="flex-process">
+    <h2 class="flex-process-title">{{ layout.titre }}</h2>
+	<div class="flex-process-wrapper">
+	    <div class="flex-process-numbers" data-animation-container>
+			<div class="flex-process-numbers-wrapper">
+			    <span>0</span>
+				<span class="flex-process-numbers-scroll" data-animation="steps">
+			    {% for step in layout.liste_des_etapes %}
+       					<span>{{ loop.index }}</span>
+                    {% endfor %}
+				</span>
+                <span>.</span>
+			</div>
+		</div>
+		<div class="flex-process-list">
+		{% for step in layout.liste_des_etapes %}
+			<div class="flex-process-step">
+			    <h3 class="flex-process-step-title">{{ step.titre }}</h3>
+				<div class="flex-process-step-description">{{ step.paragraphe|nl2br }}</div>
+			</div>
+        {% endfor %}
+		</div>
+	</div>
+</div>

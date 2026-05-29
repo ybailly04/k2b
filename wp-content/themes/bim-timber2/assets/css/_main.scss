@@ -11,21 +11,15 @@
 
 :root {
     --size-unit: 16; /* body font-size in design - no px */
-    --size-container-ideal: 1440; /* screen-size in design - no px */
+    --size-container-ideal: 1600; /* screen-size in design - no px */
     --size-container-min: 992px;
-    --size-container-max: 1920px;
-    --size-container: clamp(
-        var(--size-container-min),
-        100vw,
-        var(--size-container-max)
-    );
-    --size-font: calc(
-        var(--size-container) / (var(--size-container-ideal) / var(--size-unit))
-    );
+    --size-container-max: 2400px;
+    --size-container: clamp(var(--size-container-min), 100vw, var(--size-container-max));
+    --size-font: calc(var(--size-container) / (var(--size-container-ideal) / var(--size-unit)));
     --grid-gap: 20px;
 
     /* COLORS */
-    --bg: #{$white};
+    --bg: #{$beige};
     --color: #{$black};
     --bg-dark: #{$black};
     --color-dark: #{$white};
@@ -39,10 +33,17 @@
 }
 @media #{$sm} {
     :root {
-        --size-container-ideal: 390; /* screen-size in design - no px */
-        --size-container-min: 320px;
-        --size-container-max: 479px;
+        --size-container-ideal: 550; /* screen-size in design - no px */
+        --size-container-min: 400px;
+        --size-container-max: 750px;
     }
+}
+
+[data-theme="dark"] {
+    --bg: #{$black};
+    --color: #{$white};
+    --bg-dark: #{$white};
+    --color-dark: #{$black};
 }
 
 svg {
@@ -62,6 +63,15 @@ body {
     padding: 0 !important;
     margin: 0 !important;
     min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: $font-secondary;
+    font-weight: 400;
 }
 
 h1 {
@@ -97,19 +107,5 @@ h5 {
     &-little {
         @extend .container;
         max-width: 780px;
-    }
-}
-
-.wysiwyg-text {
-    p {
-        text-wrap: pretty;
-    }
-
-    a {
-        transition: $ts;
-
-        &:hover {
-            color: $color-main;
-        }
     }
 }
