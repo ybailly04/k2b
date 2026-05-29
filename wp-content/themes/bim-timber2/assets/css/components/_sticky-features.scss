@@ -125,13 +125,17 @@
     margin-bottom: 0;
 }
 
+.sticky-features__upper{
+    text-transform: uppercase;
+}
+
 .sticky-features__tag {
     margin-bottom: 1.5em;
     padding: 0.5em 0.625em;
     font-size: 0.8em;
     line-height: 1;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .resource-end {

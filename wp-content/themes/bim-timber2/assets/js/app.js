@@ -9,6 +9,7 @@ import "./components/steps.js";
 import "./components/objects.js";
 import "./components/vimeo.js";
 import "./components/whatsapp.js";
+import "./components/transition.js";
 import { ScrollManager } from "./components/scroll.js";
 import { CursorManager } from "./components/cursor.js";
 

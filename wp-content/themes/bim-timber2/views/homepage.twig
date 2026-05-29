@@ -3,7 +3,7 @@
 {% block content %}
 	<article class="homepage">
 	    <div class="homepage-hero">
-			<h1 class="homepage-hero-title">{{ fields.hero.titre_h1 }}</h1>
+			<h1 class="homepage-hero-title" data-appear="title" data-delay=".4">{{ fields.hero.titre_h1 }}</h1>
 			<a href="{{ fields.hero.bouton.url }}" class="homepage-hero-button button-primary">
 			    <span class="button-inner">
 			        <span class="button-text">{{ fields.hero.bouton.title }}</span>
@@ -14,7 +14,7 @@
             </video>
             <svg class="homepage-hero-deco bim-icon" data-icon="vector-full"></svg>
 			<div class="homepage-hero-bottom">
-			    <div class="homepage-hero-bottom-left">{{ fields.hero.texte_intro }}</div>
+			    <div class="homepage-hero-bottom-left">{{ fields.hero.texte_intro|nl2br }}</div>
 			    <div class="homepage-hero-bottom-right">
 					<div class="homepage-hero-bottom-stars">
     					{% for i in 0..(fields.hero.etoiles_google - 1) %}
@@ -29,13 +29,19 @@
 		</div>
 		<div class="homepage-intro">
 			<div class="homepage-intro-text" data-appear="text">
-			    <h2 class="homepage-intro-title">{{ fields.intro.petit_titre }}</h2>
+			    <h2 class="homepage-intro-title" data-appear="title">{{ fields.intro.petit_titre }}</h2>
 			    {{ fields.intro.texte }}
 			</div>
 			<div class="homepage-intro-deco">
 			    <img class="homepage-intro-deco-coin" src="{{ 'coin.png'|theme_image }}" role="presentation">
                 <svg class="homepage-intro-deco-svg bim-icon" data-icon="vector"></svg>
 			</div>
+		</div>
+		<div class="homepage-transition" data-transition>
+			<div class="homepage-transition-surtitle">{{ fields.etapes.surtitre }}</div>
+			<h2 class="homepage-transition-title">{{ fields.etapes.titre }}</h2>
+			<div class="homepage-transition-left">{{ fields.etapes.texte_gauche }}</div>
+			<div class="homepage-transition-right">{{ fields.etapes.texte_droite }}</div>
 		</div>
 		<div class="homepage-steps">
     		<div data-sticky-feature-wrap="" class="sticky-features__wrap">
@@ -60,6 +66,9 @@
                                             <span data-sticky-feature-text="" class="sticky-features__tag">{{ section.surtitre }}</span>
                                             <h2 data-sticky-feature-text="" class="sticky-features__heading">{{ section.titre }}</h2>
                                             <div data-sticky-feature-text="" class="sticky-features__p">{{ section.texte }}</div>
+											{% if section.sous_texte %}
+                                            	<div data-sticky-feature-text="" class="sticky-features__upper ">{{ section.sous_texte|nl2br }}</div>
+											{% endif %}
                                             <a href="{{ fields.hero.bouton.url }}" data-sticky-feature-text class="sticky-features__p button-secondary">
                                  			    <span class="button-inner">
                                  			        <span class="button-text">{{ fields.hero.bouton.title }}</span>
@@ -86,14 +95,14 @@
     				</span>
      			</a>
             </div>
-            <h2 class="homepage-about-title">
+            <h2 class="homepage-about-title" data-appear="top">
                 <span>{{ fields.histoire.titre_ligne_1 }}</span>
                 <span>{{ fields.histoire.titre_ligne_2 }}</span>
                 <span>{{ fields.histoire.titre_ligne_3 }}</span>
             </h2>
 		</div>
 		<div class="homepage-process">
-		    <h2 class="homepage-process-title">{{ fields.processus.titre }}</h2>
+		    <h2 class="homepage-process-title" data-appear="title">{{ fields.processus.titre }}</h2>
 			<div class="homepage-process-wrapper">
 			    <div class="homepage-process-numbers" data-animation-container>
 					<div class="homepage-process-numbers-wrapper">
@@ -106,7 +115,7 @@
                         <span>.</span>
 					</div>
 				</div>
-				<div class="homepage-process-list">
+				<div class="homepage-process-list" data-appear="right">
 				{% for step in fields.processus.liste_du_processus %}
 					<div class="homepage-process-step">
 					    <h3 class="homepage-process-step-title">{{ step.titre }}</h3>

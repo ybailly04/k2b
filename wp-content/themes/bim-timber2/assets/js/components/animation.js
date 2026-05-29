@@ -39,6 +39,9 @@ class Appear {
       }
     }
 
+    if (this.el && this.direction == "title") {
+      this.appearTitle(this.el);
+    }
     if (this.el && this.direction == "defil") {
       this.initDefil(this.el);
     }
@@ -132,6 +135,32 @@ class Appear {
         scrub: true,
       },
     });
+  }
+
+  appearTitle(el) {
+    let split = new SplitText(el, { type: "lines, words", mask:"lines", wordsClass: "word" });
+    let delay = el.dataset.delay ?? "";
+
+    if (delay != "") {
+      gsap.from(split.lines, {
+        yPercent: 100,
+        ease: "power3.inOut",
+        duration: 1.2,
+        delay: delay,
+        stagger: .1
+      })
+    } else {
+      gsap.from(split.lines, {
+        yPercent: 100,
+        ease: "power3.inOut",
+        duration: 1.2,
+        stagger: .1,
+        scrollTrigger: {
+          trigger: el,
+          start: "top 75%",
+        }
+      })
+    }
   }
 
   appearGallery(el) {

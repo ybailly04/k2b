@@ -11,7 +11,7 @@
     background-color: $beige;
 
     &-hero {
-        height: 100dvh;
+        height: 100lvh;
         width: 100%;
         position: relative;
         color: $white;
@@ -59,10 +59,13 @@
             @include container;
             @include sitegrid();
             width: 100%;
+            z-index: 2;
             &-left {
                 @include gridspan(1, 5);
                 font-family: $font-secondary;
+                letter-spacing: -0.025em;
                 font-size: 2em;
+                letter-spacing: -0.025em;
                 @media #{$lg} {
                     font-size: 1.5em;
                 }
@@ -109,12 +112,13 @@
             font-family: $font;
             display: inline-flex;
             margin: 0 2rem 0 0;
-            font-weight: 600;
+            font-weight: 500;
         }
         &-text {
             @include gridspan(1, 9);
             font-family: $font-secondary;
             font-size: 2em;
+            letter-spacing: -0.025em;
 
             p {
                 display: inline;
@@ -146,9 +150,56 @@
         }
     }
 
-    &-steps {
+    &-transition{
         @include container;
-        @include background($maroon);
+        @include sitegrid;
+        @include blockspacing;
+
+        &-title{
+            @include gridspan(3,8);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: -0.025em;
+            color: $gray;
+            font-size: 8em;
+        }
+        &-surtitle{
+            @include gridspan(6,2);
+            text-transform: uppercase;
+            font-weight: 500;
+            text-align: center;
+        }
+        &-left{
+            @include gridspan(1,2);
+            text-transform: uppercase;
+            font-family: $font-secondary;
+            letter-spacing: -0.025em;
+            color: $gray;
+            grid-row: 2;
+            align-self: center;
+            @media #{$md} {
+                display: none;
+            }
+        }
+        &-right{
+            @include gridspan(11,2);
+            text-align: right;
+            text-transform: uppercase;
+            font-family: $font-secondary;
+            letter-spacing: -0.025em;
+            color: $gray;
+            grid-row: 2;
+            align-self: center;
+            @media #{$md} {
+                display: none;
+            }
+        }
+    }
+
+    &-steps {
+        --bgcolor: #{$gray};
+        @include container;
+        @include background(var(--bgcolor));
         height: 200lvh;
         width: 100%;
         display: flex;
@@ -276,6 +327,7 @@
             @include gridspan(1, 4);
             font-size: 8em;
             font-family: $font-secondary;
+            letter-spacing: -0.025em;
             position: relative;
             color: $white;
             height: 100%;

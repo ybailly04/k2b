@@ -80,6 +80,7 @@
 					font-size: 3.2rem;
 					line-height: 1;
 					font-family: $font-secondary;
+					letter-spacing: -0.025em;
 					@include underline_alt();
 					@media #{$sm} {
 						font-size: 2rem;

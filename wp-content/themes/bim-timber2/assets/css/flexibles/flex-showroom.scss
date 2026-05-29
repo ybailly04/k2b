@@ -11,7 +11,7 @@
 
     &-surtitle {
         text-transform: uppercase;
-        font-weight: 600;
+        font-weight: 500;
         @media #{$md} {
             font-size: 1em;
         }
@@ -57,7 +57,7 @@
         grid-row: 1;
         text-transform: uppercase;
         color: $gray;
-        font-weight: 600;
+        font-weight: 500;
         @media #{$md} {
             grid-column: 2;
         }
@@ -67,7 +67,7 @@
         grid-row: 2;
         text-transform: uppercase;
         color: $gray;
-        font-weight: 600;
+        font-weight: 500;
         align-self: flex-end;
         @media #{$md} {
             grid-column: 3 / span 2;

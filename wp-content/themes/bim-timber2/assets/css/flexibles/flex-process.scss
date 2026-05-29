@@ -59,6 +59,7 @@
         @include gridspan(1, 4);
         font-size: 8em;
         font-family: $font-secondary;
+        letter-spacing: -0.025em;
         position: relative;
         color: $white;
         height: 100%;

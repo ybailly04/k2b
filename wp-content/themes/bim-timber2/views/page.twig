@@ -4,7 +4,7 @@
 	<article class="page">
 	    <section class="page-hero">
 			<h1 class="page-hero-uptitle">{{ fields.titre_h1 != "" ? fields.titre_h1 : fields.title }}</h1>
-			<div class="page-hero-title">{{ fields.titre }}</div>
+			<div class="page-hero-title" data-appear="title" data-delay=".4">{{ fields.titre }}</div>
 			<div class="page-hero-intro">{{ fields.intro }}</div>
 			<picture class="page-hero-picture">
                 {{ post.thumbnail|get_timber_picture_responsive('fullsize')}}

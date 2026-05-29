@@ -39,6 +39,7 @@ function initStickyFeatures(root) {
     function transition(fromIndex, toIndex) {
       if (fromIndex === toIndex) return;
       const tl = gsap.timeline({ defaults: { overwrite: "auto" } });
+      const colortl = gsap.timeline({ defaults: { overwrite: "auto" } });
 
       if (fromIndex < toIndex) {
         tl.to(
@@ -50,6 +51,11 @@ function initStickyFeatures(root) {
           },
           0,
         );
+        colortl.to(".homepage-steps", {
+          "--bgcolor": "#1F1715",
+            duration: DURATION,
+            ease: EASE,
+        });
       } else {
         tl.to(
           visualWraps[fromIndex],
@@ -60,6 +66,11 @@ function initStickyFeatures(root) {
           },
           0,
         );
+        colortl.to(".homepage-steps", {
+          "--bgcolor": "#62594C",
+            duration: DURATION,
+            ease: EASE,
+        });
       }
       animateOut(items[fromIndex]);
       animateIn(items[toIndex]);
