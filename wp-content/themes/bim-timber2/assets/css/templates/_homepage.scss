@@ -150,27 +150,27 @@
         }
     }
 
-    &-transition{
+    &-transition {
         @include container;
         @include sitegrid;
         @include blockspacing;
 
-        &-title{
-            @include gridspan(3,8);
+        &-title {
+            @include gridspan(3, 8);
             text-align: center;
             text-transform: uppercase;
             letter-spacing: -0.025em;
             color: $gray;
             font-size: 8em;
         }
-        &-surtitle{
-            @include gridspan(6,2);
+        &-surtitle {
+            @include gridspan(6, 2);
             text-transform: uppercase;
             font-weight: 500;
             text-align: center;
         }
-        &-left{
-            @include gridspan(1,2);
+        &-left {
+            @include gridspan(1, 2);
             text-transform: uppercase;
             font-family: $font-secondary;
             letter-spacing: -0.025em;
@@ -181,8 +181,8 @@
                 display: none;
             }
         }
-        &-right{
-            @include gridspan(11,2);
+        &-right {
+            @include gridspan(11, 2);
             text-align: right;
             text-transform: uppercase;
             font-family: $font-secondary;
@@ -211,6 +211,7 @@
         @include sitegrid;
         @include container;
         @include blockspacing;
+        position: relative;
 
         &-picture {
             @include gridspan(1, 4);
@@ -262,6 +263,17 @@
                         margin-left: 1em;
                     }
                 }
+            }
+        }
+
+        &-coin {
+            position: absolute;
+            bottom: 4em;
+            right: 10em;
+            width: 6em;
+            height: 6em;
+            @media #{$md} {
+                display: none;
             }
         }
     }

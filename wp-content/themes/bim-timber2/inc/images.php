@@ -18,6 +18,12 @@ add_filter("timmy/sizes", function ($sizes) {
             "name" => "Full",
             "webp" => true,
         ],
+        "landscape" => [
+            "resize" => [1920, 1080, true],
+            "srcset" => [0.5, 2],
+            "name" => "Landscape",
+            "webp" => true,
+        ],
         "portrait" => [
             "resize" => [550, 715, true],
             "srcset" => [0.5, 2],

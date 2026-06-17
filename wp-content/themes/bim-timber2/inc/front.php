@@ -72,3 +72,63 @@ function fr_phone_format($phone_formats)
 
     return $phone_formats;
 }
+
+//Disable blog
+add_action( 'admin_menu', 'remove_post_admin_menus' );
+add_action( 'wp_before_admin_bar_render', 'remove_post_toolbar_menus' );
+add_action( 'wp_dashboard_setup', 'remove_post_dashboard_widgets' );
+
+function remove_post_admin_menus() {
+    remove_menu_page( 'edit.php' );
+}
+
+function remove_post_toolbar_menus() {
+    global $wp_admin_bar;
+    $wp_admin_bar->remove_menu( 'new-post' );
+}
+
+function remove_post_dashboard_widgets() {
+    global $wp_meta_boxes;
+    unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']);
+    unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments']);
+}
+
+add_action('admin_init', function () {
+    // Redirect any user trying to access comments page
+    global $pagenow;
+    
+    if ($pagenow === 'edit-comments.php') {
+        wp_redirect(admin_url());
+        exit;
+    }
+
+    // Remove comments metabox from dashboard
+    remove_meta_box('dashboard_recent_comments', 'dashboard', 'normal');
+
+    // Disable support for comments and trackbacks in post types
+    foreach (get_post_types() as $post_type) {
+        if (post_type_supports($post_type, 'comments')) {
+            remove_post_type_support($post_type, 'comments');
+            remove_post_type_support($post_type, 'trackbacks');
+        }
+    }
+});
+
+// Close comments on the front-end
+add_filter('comments_open', '__return_false', 20, 2);
+add_filter('pings_open', '__return_false', 20, 2);
+
+// Hide existing comments
+add_filter('comments_array', '__return_empty_array', 10, 2);
+
+// Remove comments page in menu
+add_action('admin_menu', function () {
+    remove_menu_page('edit-comments.php');
+});
+
+// Remove comments links from admin bar
+add_action('init', function () {
+    if (is_admin_bar_showing()) {
+        remove_action('admin_bar_menu', 'wp_admin_bar_comments_menu', 60);
+    }
+});

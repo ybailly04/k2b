@@ -19,6 +19,8 @@
         flex-direction: column;
         position: relative;
         z-index: 2;
+        align-self: flex-end;
+        margin: 0;
         @media #{$md} {
             font-size: 3em;
         }
@@ -82,7 +84,7 @@
 
     &-button {
         @include gridspan(4, 2);
-        align-self: center;
+        align-self: flex-start;
         justify-self: center;
     }
 }

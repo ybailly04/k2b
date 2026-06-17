@@ -1,0 +1,12 @@
+<div class="flex-paragraphe double">
+	<div class="flex-paragraphe-column">
+		{% if layout.colonne_gauche %}
+			{{ layout.colonne_gauche }}
+		{% endif %}
+	</div>
+	<div class="flex-paragraphe-column">
+        {% if layout.colonne_droite %}
+		    {{ layout.colonne_droite }}
+        {% endif %}
+	</div>
+</div>

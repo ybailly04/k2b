@@ -4,7 +4,7 @@
 .header {
     background-color: transparent;
     color: var(--color-dark);
-    padding: 2rem 0;
+    padding: 1.5rem 0;
     position: absolute;
     top: 0;
     left: 0;
@@ -45,12 +45,12 @@
         gap: 1em;
     }
 
-    &-contact{
+    &-contact {
         @media #{$md} {
-            display: none!important;
+            display: none !important;
         }
 
-        &--mobile{
+        &--mobile {
             text-transform: uppercase;
             font-weight: 500;
             color: currentColor;

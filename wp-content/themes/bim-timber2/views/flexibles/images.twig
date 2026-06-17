@@ -1,12 +1,12 @@
 <div class="flex-images">
     {% if layout.image_gauche %}
-        <picture class="flex-images-gauche">
-            {{ layout.image_gauche|get_timber_picture_responsive('square')}}
+        <picture class="flex-images-gauche {{ not layout.image_droite ? "solo" : "" }}">
+            {{ layout.image_gauche|get_timber_picture_responsive(not layout.image_droite ? 'landscape' : 'square')}}
         </picture>
     {% endif %}
     {% if layout.image_droite %}
-        <picture class="flex-images-droite">
-            {{ layout.image_droite|get_timber_picture_responsive('square')}}
+        <picture class="flex-images-droite {{ not layout.image_gauche ? "solo" : "" }}">
+            {{ layout.image_droite|get_timber_picture_responsive(not layout.image_gauche ? 'landscape' : 'square')}}
         </picture>
     {% endif %}
 </div>
