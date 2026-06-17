@@ -162,6 +162,12 @@
             letter-spacing: -0.025em;
             color: $gray;
             font-size: 8em;
+            @media #{$lg} {
+                font-size: 6em;
+            }
+            @media #{$sm} {
+                font-size: 5em;
+            }
         }
         &-surtitle {
             @include gridspan(6, 2);
@@ -281,6 +287,7 @@
     &-process {
         @include blockspacing;
         @include container;
+        overflow: hidden;
 
         &-title {
             text-align: center;

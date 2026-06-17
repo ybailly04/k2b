@@ -147,25 +147,28 @@
 
 @media screen and (max-width: 767px) {
     .sticky-features__scroll {
-        justify-content: center;
-        align-items: center;
-        height: auto;
+        justify-content: flex-start;
+        align-items: flex-start;
+        height: 100%;
         min-height: 100svh;
         padding-top: 1.25em;
-        padding-bottom: 2.5em;
+        padding-bottom: 1.5em;
     }
 
     .sticky-features__container {
+        height: 100%;
         grid-column-gap: 2em;
         grid-row-gap: 2em;
         flex-flow: column;
         justify-content: flex-start;
         align-items: stretch;
+        display: flex;
+        flex-direction: column;
     }
 
     .sticky-features__img-list {
         aspect-ratio: 1;
-        max-height: 350px;
+        max-height: 300px;
     }
 
     .sticky-features__text-list {

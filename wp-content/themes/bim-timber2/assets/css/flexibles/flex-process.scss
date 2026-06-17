@@ -2,6 +2,7 @@
 @use "../mixins" as *;
 
 .flex-process {
+    overflow: hidden;
     @include blockspacing;
     @include container;
 

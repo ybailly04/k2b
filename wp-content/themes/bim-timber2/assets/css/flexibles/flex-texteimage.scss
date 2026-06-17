@@ -11,6 +11,15 @@
         .droite & {
             @include gridspan(8, 5);
         }
+        position: relative;
+        width: 100%;
+        aspect-ratio: 4/5;
+        
+
+        > img{
+            width: 100%;
+            height: 100%;
+        }
     }
 
     &-side {

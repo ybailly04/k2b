@@ -8,6 +8,9 @@
     @include container;
     @include background($black);
     gap: 4em 1em;
+    @media #{$sm} {
+        gap: 2em 1em;
+    }
 
     &-socials {
         @include gridspan(1, 2);
